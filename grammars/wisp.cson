@@ -27,7 +27,7 @@
         'name': 'storage.type.function-type.wisp'
       '4':
         'name': 'entity.name.function.wisp'
-    'match': '(\\b(?i:(defun|defmethod|defmacro))\\b)(\\s+)((\\w|\\-|\\!|\\?)*)'
+    'match': '(\\b(?i:(def|fn|defn|defun|defmethod|defmacro))\\b)(\\s+)((\\w|\\-|\\!|\\?)*)'
     'name': 'meta.function.wisp'
   }
   {
@@ -47,7 +47,7 @@
     'name': 'variable.other.global.wisp'
   }
   {
-    'match': '\\b(?i:case|do|let|loop|if|else|when)\\b'
+    'match': '\\b(?i:case|do|let|loop|if|else|when|get|try|catch|finally|throw)\\b'
     'name': 'keyword.control.wisp'
   }
   {
@@ -88,21 +88,8 @@
     ]
   }
   {
-    'begin': '\\\\'
-    'beginCaptures':
-      '0':
-        'name': 'string.backslash.begin.wisp'
-    'end': '\\s'
-    'endCaptures':
-      '0':
-        'name': 'string.backslash.end.wisp'
-    'name': 'string.backslash.end.wisp'
-    'patterns': [
-      {
-        'match': '\\\\.'
-        'name': 'string.backslash.wisp'
-      }
-    ]
+    'match': '\\\\.'
+    'name': 'string.backslash.wisp'
   }
   {
     'begin': ':'
@@ -122,7 +109,7 @@
     ]
   }
   {
-    'match': '\\+|\\-|\\*|mod|identical\\?|=|<|>'
+    'match': '(\\+|\\-|\\*|mod|identical\\?|=|<|>|<=|>=|/)\\s'
     'name': 'keyword.operator.wisp'
   }
 ]
