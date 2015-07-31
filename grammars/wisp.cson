@@ -1,0 +1,129 @@
+'comment': ''
+'fileTypes': [
+  'wisp'
+]
+'name': 'wisp'
+'patterns': [
+  {
+    'begin': '(^[ \\t]+)?(?=;)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.wisp'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': ';'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.wisp'
+        'end': '\\n'
+        'name': 'comment.line.semicolon.wisp'
+      }
+    ]
+  }
+  {
+    'captures':
+      '2':
+        'name': 'storage.type.function-type.wisp'
+      '4':
+        'name': 'entity.name.function.wisp'
+    'match': '(\\b(?i:(defun|defmethod|defmacro))\\b)(\\s+)((\\w|\\-|\\!|\\?)*)'
+    'name': 'meta.function.wisp'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'punctuation.definition.constant.wisp'
+    'match': '(#)(\\w|[\\\\+-=<>\'"&#])+'
+    'name': 'constant.character.wisp'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'punctuation.definition.variable.wisp'
+      '3':
+        'name': 'punctuation.definition.variable.wisp'
+    'match': '(\\*)(\\S*)(\\*)'
+    'name': 'variable.other.global.wisp'
+  }
+  {
+    'match': '\\b(?i:case|do|let|loop|if|else|when)\\b'
+    'name': 'keyword.control.wisp'
+  }
+  {
+    'match': '\\b(?i:eq|neq|and|or)\\b'
+    'name': 'keyword.operator.wisp'
+  }
+  {
+    'match': '\\b(?i:null|nil)\\b'
+    'name': 'constant.language.wisp'
+  }
+  {
+    'match': '\\b(?i:true|false)\\b'
+    'name': 'constant.language.wisp'
+  }
+  {
+    'match': '\\b(?i:cons|car|cdr|cond|lambda|format|setq|setf|quote|eval|append|memberp|t|load|progn)\\b'
+    'name': 'support.function.wisp'
+  }
+  {
+    'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b'
+    'name': 'constant.numeric.wisp'
+  }
+  {
+    'begin': '"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.wisp'
+    'end': '"'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.wisp'
+    'name': 'string.quoted.double.wisp'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.wisp'
+      }
+    ]
+  }
+  {
+    'begin': '\\\\'
+    'beginCaptures':
+      '0':
+        'name': 'string.backslash.begin.wisp'
+    'end': '\\s'
+    'endCaptures':
+      '0':
+        'name': 'string.backslash.end.wisp'
+    'name': 'string.backslash.end.wisp'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'string.backslash.wisp'
+      }
+    ]
+  }
+  {
+    'begin': ':'
+    'beginCaptures':
+      '0':
+        'name': 'keyword.begin.wisp'
+    'end': '\\s'
+    'endCaptures':
+      '0':
+        'name': 'keyword.end.wisp'
+    'name': 'keyword.end.wisp'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'keyword.wisp'
+      }
+    ]
+  }
+  {
+    'match': '\\+|\\-|\\*|mod|identical\\?|=|<|>'
+    'name': 'keyword.operator.wisp'
+  }
+]
+'scopeName': 'source.wisp'
